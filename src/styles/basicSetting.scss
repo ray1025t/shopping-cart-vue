@@ -1,0 +1,269 @@
+/********** basic setting **********/
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
+
+@each $prop,
+$abbrev in (width: w, height: h) {
+
+  @each $num,
+  $val in $sizes {
+    .#{$abbrev}-#{$num} {
+      #{$prop}: $val;
+    }
+  }
+}
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * 0.25),
+  2: ($spacer * 0.5),
+  3: ($spacer * 0.75),
+  4: $spacer,
+  5: ($spacer * 1.25),
+  6: ($spacer * 1.5),
+  7: ($spacer * 1.75),
+  8: ($spacer * 2)
+);
+
+@each $prop,
+$abbrev in (margin: m, padding: p) {
+
+  @each $num,
+  $val in $spacers {
+    .#{$abbrev}-#{$num} {
+      #{$prop}: $val;
+    }
+
+    .#{$abbrev}t-#{$num} {
+      #{$prop}-top: $val;
+    }
+
+    .#{$abbrev}b-#{$num} {
+      #{$prop}-bottom: $val;
+    }
+
+    .#{$abbrev}r-#{$num} {
+      #{$prop}-right: $val;
+    }
+
+    .#{$abbrev}l-#{$num} {
+      #{$prop}-left: $val;
+    }
+
+    .#{$abbrev}x-#{$num} {
+      #{$prop}-left: $val;
+      #{$prop}-right: $val;
+    }
+
+    .#{$abbrev}y-#{$num} {
+      #{$prop}-top: $val;
+      #{$prop}-bottom: $val;
+    }
+  }
+}
+
+@mixin getStepNums($num) {
+  @for $i from 1 through $num {
+    &:nth-child(#{$i}) .step--circle::after {
+      content: "#{$i}";
+    }
+  }
+}
+
+:root {
+  --standard-color: #2a2a2a;
+  --body-color: #ffffff;
+  --menu-background: #ffffff;
+  --menu-border: rgba(42, 42, 42, 0.1);
+  --input-background: #ffffff;
+  --input-placeholder: #999999;
+  --input-border: #4a4a4a;
+  --input-label: #808080;
+  --title-color: #2a2a2a;
+  --step-active: #2a2a2a;
+  --step-checked: #333333;
+  --step-undone: #afb1bd;
+  --radio-checked: #2a2a2a;
+  --radio-disable: #f0f0f5;
+  --radio: #222222;
+  --delivery-font: #000000;
+  --delivery-span: #000000;
+  --cart-font: #000000;
+  --cart-border: #f0f0f5;
+  --cart-background: #ffffff;
+  --cart-radius: #f0f0f5;
+  --form-border: #e6e6eb;
+  --font-color: #2a2a2a;
+  --button-next: #f67599;
+  --button-font: #ffffff;
+  --button-prev-font: #000000;
+  --color: #000000;
+  --white: #ffffff;
+  --footer-background: #f0f0f5;
+  --footer-title: #2a2a2a;
+  --footer-font: #808080;
+  --logo-url: url(https://i.imgur.com/in96d7T.jpg);
+  --dark-url: url(https://imgur.com/BSlRwfP.jpg);
+  --search-url: url(https://imgur.com/6gcKDFp.jpg);
+  --cart-url: url(https://i.imgur.com/Y7rSfmr.jpg);
+}
+
+[data-theme="dark"] {
+  --standard-color: #ffffff;
+  --menu-background: #000000;
+  --menu-border: rgba(240, 240, 245, 0.4);
+  --body-color: #000000;
+  --input-background: #000000;
+  --input-placeholder: #999999;
+  --input-border: #5e5e5e;
+  --input-label: rgba(255, 255, 255, 0.4);
+  --title-color: #ffffff;
+  --step-active: #ffffff;
+  --step-checked: #333333;
+  --step-undone: #2a2a2a;
+  --radio-checked: #ffffff;
+  --radio-disable: #5e5e5e;
+  --radio: #333333;
+  --delivery-font: #ffffff;
+  --delivery-span: rgba(255, 255, 255, 0.4);
+  --cart-border: rgba(255, 255, 255, 0.2);
+  --cart-background: #383838;
+  --cart-radius: #808080;
+  --cart-font: #ffffff;
+  --form-border: rgba(255, 255, 255, 0.2);
+  --font-color: #ffffff;
+  --button-next: #f67599;
+  --button-font: #ffffff;
+  --button-prev-font: #ffffff;
+  // --color: #ffffff;
+  --white: #ffffff;
+  --footer-background: #333333;
+  --footer-title: #ffffff;
+  --footer-font: rgba(255, 255, 255, 0.6);
+  --logo-url: url(https://i.imgur.com/8oKZxu9.jpg);
+  --dark-url: url(https://imgur.com/pDmP679.jpg);
+  --search-url: url(https://imgur.com/oRomQ8O.jpg);
+  --cart-url: url(https://imgur.com/RNCGUyr.jpg);
+}
+
+%input-style {
+  height: 40px;
+  border-radius: 4px;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  background: var(--input-background);
+  cursor: pointer;
+}
+
+%span-style {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+%some-style {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+%standard-boxshadow {
+  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
+}
+
+.d-none {
+  display: none;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-blockt;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
+.align-content-start {
+  align-content: flex-start;
+}
+
+.align-content-end {
+  align-content: flex-end;
+}
+
+.align-content-center {
+  align-content: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}

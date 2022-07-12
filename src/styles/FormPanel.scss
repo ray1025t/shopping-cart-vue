@@ -1,0 +1,160 @@
+/********** form__palel **********/
+
+.form__panel {
+  width: 100%;
+  margin-top: 1rem;
+
+  input,
+  select {
+    width: 100%;
+    @extend %input-style;
+  }
+
+  select {
+    &:invalid {
+      color: var(--input-placeholder);
+    }
+  }
+
+  input {
+    &[type="radio"] {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      -webkit-appearance: none;
+      border-radius: 50%;
+
+      &:checked {
+        box-shadow: inset 0 0 0 8px var(--radio-checked);
+
+        &:checked::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          border: 1px solid #000;
+        }
+      }
+    }
+  }
+
+  .form__part__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 1.5rem;
+    color: var(--title-color);
+  }
+
+  .form__group {
+    margin-bottom: 0.5rem;
+    grid-gap: 30px;
+
+    .form__row {
+      margin-bottom: 1rem;
+
+      >label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--input-label);
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    .gender {
+      width: 40%;
+    }
+
+    .name {
+      width: 55%;
+    }
+  }
+
+  .form__delivery__wrapper {
+    margin-bottom: 2rem;
+
+    .delivery {
+      position: relative;
+      border: 1px solid var(--radio-disable);
+      border-radius: 4px;
+      padding: 11px 20px;
+      margin-bottom: 1rem;
+
+      &:hover,
+      &:checked {
+        border-color: var(--radio-checked);
+      }
+
+      .delivery--radio {
+        width: 75px;
+      }
+
+      .delivery--info {
+        flex: 1;
+
+        >label {
+          @extend %some-style;
+          color: var(--delivery-font);
+        }
+
+        >p {
+          @extend %span-style;
+          color: var(--delivery-span);
+        }
+      }
+
+      .delivery--shipping {
+        width: 100px;
+        text-align: center;
+
+        >span {
+          @extend %span-style;
+        }
+      }
+    }
+  }
+}
+
+    /********** form__panel **********/
+    .form__panel {
+      grid-area: form;
+  
+      .form__group {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+  
+        .form__row {
+          width: 100%;
+        }
+  
+        .gender,
+        .county {
+          grid-column: 1 / 3;
+        }
+  
+        .phone,
+        .date {
+          grid-column: 1 / 4;
+        }
+  
+        .Email,
+        .CVC {
+          grid-column: 4 / 7;
+        }
+  
+        .name,
+        .address {
+          grid-column: 3 / 7;
+        }
+  
+        .cardHolder,
+        .cardNum {
+          grid-column: 1 / 7;
+        }
+      }
+    }

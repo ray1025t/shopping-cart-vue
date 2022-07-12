@@ -1,0 +1,121 @@
+/********** steeper **********/
+@import './../styles/basicSetting.scss';
+.stepper__panel {
+  padding: 1rem 0;
+  width: 100%;
+
+  .stepper__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .step:first-child {
+      justify-content: flex-start;
+    }
+
+    .step:last-child {
+      justify-content: flex-end;
+    }
+
+    .step {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      @include getStepNums(3);
+
+      &.checked,
+      &.active {
+        .step--label {
+          color: var(--step-active);
+        }
+
+        .step--line {
+          background: var(--step-active);
+        }
+      }
+
+      &.checked {
+        .step--circle::after {
+          content: "\2714";
+        }
+
+        .step--circle {
+          background: var(--step-checked);
+          color: var(--white);
+        }
+      }
+
+      &.active .step--circle {
+        border-color: var(--step-active);
+        color: var(--step-active);
+      }
+
+      .step--circle {
+        color: var(--step-undone);
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid var(--step-undone);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .step--label {
+        display: none;
+        color: var(--step-undone);
+      }
+
+      .step--line {
+        position: absolute;
+        height: 2px;
+        background-color: var(--step-undone);
+        display: block;
+        top: 1rem;
+      }
+
+      .line--one {
+        right: calc(-25% + 1rem);
+        left: calc(35% + 1rem);
+      }
+
+      .line--two {
+        right: calc(-65% + 1rem);
+        left: calc(75% + 1rem);
+      }
+    }
+  }
+}
+
+
+.stepper__panel {
+  grid-area: stepper;
+
+  .stepper__wrapper {
+    .step {
+      .step--label {
+        margin-left: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+
+        display: inline;
+      }
+
+      .line--one {
+        right: calc(-15% + 1rem);
+        left: calc(55% + 1rem);
+      }
+
+      .line--two {
+        right: calc(-40% + 1rem);
+        left: calc(80% + 1rem);
+      }
+    }
+  }
+}
