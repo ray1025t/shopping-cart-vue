@@ -1,5 +1,6 @@
-<template>
-  <div class="form__panel">
+<template>  
+     <div class="form__panel">
+       <StepperPanel :nowStep="nowStep" />
     <form id="a-form">
       <div class="form__content">
         <div class="form__part">
@@ -122,9 +123,44 @@
         </div>
       </div>
     </form>
+
+       <div class="btn__panel" id="btn__control">
+    <div class="btn__wrapper  " id="oneWrapper" v-if="nowStep === 0">
+      <button class="btn btn-next" @click.prevent.stop="nextStep" > 下一步 →</button>
+    </div>
+    <div class="btn__wrapper" id="twoWrapper" v-else>
+      <button class="btn btn-prev" @click.prevent.stop="prevStep">← 上一步</button>
+      <button class="btn btn-next" @click.prevent.stop="nextStep"> 下一步 →</button>
+    </div>
+  </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import './../styles/main.scss';
-</style>
+<script>
+import StepperPanel from './StepperPanel.vue'
+export default {
+  name: 'Form',
+  components: {
+    StepperPanel,
+  },
+  data() {
+    return {
+      nowStep: 0,
+    }
+  },
+  methods: {
+    nextStep() {
+      if(this.nowStep < 3) {
+        this.nowStep = this.nowStep + 1
+      console.log(this.nowStep)
+      }  
+    },
+    prevStep() {
+      if(this.nowStep >= 0 ){
+        this.nowStep = this.nowStep - 1
+         console.log(this.nowStep)
+      }
+    }
+  }
+}
+</script>
