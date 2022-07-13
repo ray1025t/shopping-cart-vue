@@ -125,13 +125,15 @@
     </form>
 
        <div class="btn__panel" id="btn__control">
-    <div class="btn__wrapper  " id="oneWrapper" v-if="nowStep === 0">
-      <button class="btn btn-next" @click.prevent.stop="nextStep" > 下一步 →</button>
+    <div class="btn__wrapper  " id="oneWrapper" >
+      <button class="btn btn-prev" @click.prevent.stop="prevStep"  v-show="nowStep > 0">← 上一步</button>
+      <button class="btn btn-next" @click.prevent.stop="nextStep" v-show="nowStep !== 2">下一步 →</button>
+      <button class="btn btn-next" v-show="nowStep === 2"> 確認下單</button>
     </div>
-    <div class="btn__wrapper" id="twoWrapper" v-else>
-      <button class="btn btn-prev" @click.prevent.stop="prevStep">← 上一步</button>
+    <!-- <div class="btn__wrapper" id="twoWrapper">
+      <button class="btn btn-prev" @click.prevent.stop="prevStep" >← 上一步</button>
       <button class="btn btn-next" @click.prevent.stop="nextStep"> 下一步 →</button>
-    </div>
+    </div> -->
   </div>
   </div>
 </template>

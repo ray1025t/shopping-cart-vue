@@ -790,7 +790,8 @@ main {
   border-top: 1px solid #e6e6eb;
 
   #oneWrapper {
-    text-align: right;
+      // text-align: justify;  不明原因：可以使用center，但不能使用justify
+    text-align: center;
 
     .btn {
       width: 100%;
@@ -799,13 +800,13 @@ main {
 
   #twoWrapper {
     // text-align: justify;  不明原因：可以使用center，但不能使用justify
-    text-align: center;
+    text-align: justify;
   }
 
   #twoWrapper::after {
-    width: 100%;
-    content: "";
-    display: inline-block;
+    // width: 100%;
+    // content: "";
+    // display: inline-block;
   }
 
   .btn {
