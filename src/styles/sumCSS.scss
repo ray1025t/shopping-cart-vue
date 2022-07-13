@@ -160,7 +160,6 @@ $abbrev in (margin: m, padding: p) {
 }
 
 /********** basic setting **********/
-$standard-color:#2a2a2a;
 :root {
   --standard-color: #2a2a2a;
   --body-color: #ffffff;
@@ -500,7 +499,7 @@ main {
 
 /********** steeper **********/
 .stepper__panel {
-  padding: 1rem 0;
+  margin-bottom: 2rem;
   width: 100%;
 
   .stepper__wrapper {
@@ -592,7 +591,6 @@ main {
 
 .form__panel {
   width: 100%;
-  margin-top: 1rem;
 
   input,
   select {
@@ -800,7 +798,8 @@ main {
   }
 
   #twoWrapper {
-    text-align: justify;
+    // text-align: justify;  不明原因：可以使用center，但不能使用justify
+    text-align: center;
   }
 
   #twoWrapper::after {
@@ -857,7 +856,13 @@ main {
     grid-template-rows: repeat(6, auto);
     grid-gap: 1rem;
 
-    grid-template-areas: "title . . .""stepper stepper . shoppingCart""form form . shoppingCart""form form . shoppingCart""form form . shoppingCart""btn btn . shoppingCart";
+    grid-template-areas: 
+    "title . . ."
+    "stepper stepper . shoppingCart"
+    "form form . shoppingCart"
+    "form form . shoppingCart"
+    "form form . shoppingCart"
+    "btn btn . shoppingCart";
 
     .main__title {
       grid-area: title;
@@ -977,6 +982,47 @@ main {
       }
     }
   }
+
+ /********** foot **********/
+
+    #footer {
+      background: var(--footer-background);
+      display: flex;
+      padding: 0 6rem;
+      justify-content: space-between;
+  
+      .footer__brand {
+        img {
+          width: 120px;
+          height: 20px;
+        }
+  
+        justify-content: center;
+        align-items: center;
+      }
+  
+      h3 {
+        color: var(--footer-title);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+      }
+  
+      .title {
+        margin: 1rem 0;
+      }
+  
+      .wrapper {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+      }
+  
+      .wrapper,
+      .wrapper a {
+        color: var(--footer-font);
+      }
+    }
 
 
 }

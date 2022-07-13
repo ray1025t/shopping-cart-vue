@@ -56,6 +56,3 @@
   </footer>
 </template>
 
-<style lang="scss" scoped>
-@import "./../styles/sumCss.scss";
-</style>

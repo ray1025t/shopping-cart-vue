@@ -3,28 +3,19 @@
     <div class="main__title">
     <p>結帳</p>
   </div>
-    <StepperPanel />
     <FormPane />
-    <ShoppingCartPanel />
-    <BtnPanel />
+    <CartPanel />
   </main>
 </template>
 
 <script>
-import StepperPanel from './../components/StepperPanel.vue'
 import FormPane from './../components/FormPane.vue'
-import ShoppingCartPanel from './../components/ShoppingCartPanel.vue'
-import BtnPanel from  './../components/BtnPanel.vue'
+import CartPanel from './../components/CartPanel.vue'
+
 export default {
   components: {
-    StepperPanel,
     FormPane,
-    ShoppingCartPanel,
-    BtnPanel,
+    CartPanel,
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import './../styles/sumCss.scss';
-</style>
