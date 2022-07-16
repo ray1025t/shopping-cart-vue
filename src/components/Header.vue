@@ -32,7 +32,6 @@
         <div class="nav__icon" id="search__icon"></div>
         <div class="nav__icon" id="cart__icon"></div>
         <div class="nav__icon" id="dark__icon">
-          <!--           <img src="https://imgur.com/BSlRwfP.jpg" alt=""></a> -->
           <label for="darkMode__toggle" class="nav__icon nav__darkMode__label" id="dark__icon"><input type="checkbox" class="darkMode__input" id="darkMode__toggle"></label>
 
         </div>
